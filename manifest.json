@@ -1,0 +1,25 @@
+{
+	"manifest_version": 2,
+	"name": "What's Playing",
+	"version": "0.1",
+
+	"description": "Whats being played in the browser.",
+
+	"icons": {
+		"48": "assets/icons/border-48.png"
+	},
+
+	"background": {
+		"scripts": ["src/background/whatsplaying.js"]
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"*://*.bandcamp.com/*",
+				"*://soundcloud.com/*",
+				"https://open.spotify.com/*"
+			],
+			"js": ["src/browser-polyfill.js", "whatsplaying.js"]
+		}
+	]
+}
